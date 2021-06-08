@@ -25,11 +25,12 @@ public class Complain {
         System.out.println("*** getPayId : " + this.getPayId());
 
         // Paid 된 건인지 체크
-        boolean result = ComplainApplication.applicationContext.getBean(airbnb.external.PaymentService.class)
-                        .chkPayment(this.getPayId());
-        System.out.println("####### Check Result : " + result);
+        
+        //boolean result = ComplainApplication.applicationContext.getBean(airbnb.external.PaymentService.class)
+        //                .chkPayment(this.getPayId());
+        //System.out.println("####### Check Result : " + result);
 
-        if(result) {
+        //if(result) {
 
 
             // 이벤트 발행 --> ComplainRegistered (불만이 등록됨)
@@ -37,7 +38,7 @@ public class Complain {
             BeanUtils.copyProperties(this, complainRegistered);
             complainRegistered.publishAfterCommit();
 
-        }
+        //}
 
         //airbnb.external.Payment payment = new airbnb.external.Payment();
         // mappings goes here        
