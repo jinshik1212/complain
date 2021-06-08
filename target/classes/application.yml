@@ -5,14 +5,35 @@ server:
 spring:
   profiles: default
   jpa:
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect 
+    generate-ddl: true #false  
     properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console  
+        temp: 
+           use_jdbc_metadata_defaults: false
+        hibernate: # Sql 로그 설정                
+           show_sql: true
+           format_sql: true
+           # use_sql_comments: true
+           use_nationalized_character_data: true   
+
+    # https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/dialect/package-summary.html
+
+    #hibernate:
+    #    naming:
+    #      physical-strategy: com.skecoplant.upv.config.NamingStrategy
+    #    ddl-auto: update #none # none 향후 적용
+        # none: No change to the database structure.
+        # update: Hibernate changes the database according to the given Entity structures. - 변경된 스키마만 적용한다.
+        # validate: 변경된 스키마가 있는지 확인만 한다. 만약 변경이 있다면 Application을 종료한다.
+        # create: Creates the database every time, but don’t drop it when close. - 시작될 때만 drop하고 다시 생성한다.
+        # create-drop: Creates the database then drops it when the SessionFactory closes. - 시작과 종료에서 모두 drop한다.
+     
+  datasource:
+    # jndi-name: jdbc/sqlserver/skupv
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://database-1.ctxnhbpzdwqx.ap-northeast-2.rds.amazonaws.com:1433;DatabaseName=eco
+    username: admin
+    password: "!skec1004"  
   cloud:
     stream:
       kafka:
@@ -48,6 +69,23 @@ server:
 
 spring:
   profiles: docker
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect 
+    generate-ddl: true #false  
+    properties:
+        temp: 
+           use_jdbc_metadata_defaults: false
+        hibernate: # Sql 로그 설정                
+           show_sql: true
+           format_sql: true
+           # use_sql_comments: true
+           use_nationalized_character_data: true   
+  datasource:
+    # jndi-name: jdbc/sqlserver/skupv
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://database-1.ctxnhbpzdwqx.ap-northeast-2.rds.amazonaws.com:1433;DatabaseName=eco
+    username: admin
+    password: "!skec1004"
   cloud:
     stream:
       kafka:
@@ -71,4 +109,4 @@ spring:
           contentType: application/json
 prop:
   room:
-    url: http://localhost:8088          
+    url: http://gateway:8080          
