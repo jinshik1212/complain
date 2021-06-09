@@ -35,7 +35,7 @@ spring:
           destination: airbnb
           contentType: application/json
 prop:
-  room:
+  payment:
     url: http://localhost:8088          
 
 logging:
@@ -48,15 +48,6 @@ server:
 
 spring:
   profiles: docker
-  jpa:
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
   cloud:
     stream:
       kafka:
