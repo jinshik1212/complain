@@ -95,5 +95,5 @@ spring:
           destination: airbnb
           contentType: application/json
 prop:
-  room:
+  payment:
     url: http://gateway:8080          

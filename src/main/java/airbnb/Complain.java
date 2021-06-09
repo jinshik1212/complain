@@ -22,7 +22,7 @@ public class Complain {
         // complain Insert (고객이 불만을 등록함)
         /////////////////////////////////////////////////////////////////
 
-        System.out.println("*** getPayId : " + this.getPayId());
+        System.out.println("**** Param getPayId : " + this.getPayId());
 
         // Paid 된 건인지 체크
         
