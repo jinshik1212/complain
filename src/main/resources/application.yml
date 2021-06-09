@@ -14,20 +14,7 @@ spring:
             show_sql: true
             format_sql: true
             # use_sql_comments: true
-            use_nationalized_character_data: true   
-
-    # https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/dialect/package-summary.html
-
-    #hibernate:
-    #    naming:
-    #      physical-strategy: com.skecoplant.upv.config.NamingStrategy
-    #    ddl-auto: update #none # none 향후 적용
-        # none: No change to the database structure.
-        # update: Hibernate changes the database according to the given Entity structures. - 변경된 스키마만 적용한다.
-        # validate: 변경된 스키마가 있는지 확인만 한다. 만약 변경이 있다면 Application을 종료한다.
-        # create: Creates the database every time, but don’t drop it when close. - 시작될 때만 drop하고 다시 생성한다.
-        # create-drop: Creates the database then drops it when the SessionFactory closes. - 시작과 종료에서 모두 drop한다.
-     
+            use_nationalized_character_data: true        
   datasource:
     # jndi-name: jdbc/sqlserver/skupv
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
