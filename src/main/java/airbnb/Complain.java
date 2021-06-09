@@ -22,7 +22,7 @@ public class Complain {
         // complain Insert (고객이 불만을 등록함)
         /////////////////////////////////////////////////////////////////
 
-        System.out.println("**** Param getPayId : " + this.getPayId());
+        System.out.println("### Param getPayId Paid 여부 확인 : " + this.getPayId());
 
         // Paid 된 건인지 체크
         
@@ -31,7 +31,6 @@ public class Complain {
         System.out.println("####### Check Result : " + result);
 
         if(result) {
-
 
             // 이벤트 발행 --> ComplainRegistered (불만이 등록됨)
             ComplainRegistered complainRegistered = new ComplainRegistered();
