@@ -17,19 +17,13 @@ spec:
     spec:
       containers:
         - name: complain
-          image: 654789606772.dkr.ecr.ap-northeast-2.amazonaws.com/user03-complain:v7
+          image: 654789606772.dkr.ecr.ap-northeast-2.amazonaws.com/user03-complain:v8
           ports:
             - containerPort: 8080          
-          args:
-          - /bin/sh
-          - -C
-          - touch /tmp/healthy; sleep 60; rm -rf /tmp/healthy; sleep 600          
-          livenessProbe:            
-            exec:
-              command: 
-              - cat
-              - /tmp/healthy
-            initialDelaySeconds: 120
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 5
+          resoures:
+            requests:
+              cpu: "1000m"
+              memory: "256Mi"
+            limits:
+              cpu: "1500m"
+              memory: "512Mi"
