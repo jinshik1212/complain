@@ -20,7 +20,7 @@ spec:
           image: 654789606772.dkr.ecr.ap-northeast-2.amazonaws.com/user03-complain:v8
           ports:
             - containerPort: 8080          
-          resoures:
+          resources:
             requests:
               cpu: "1000m"
               memory: "256Mi"
