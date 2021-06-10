@@ -71,4 +71,4 @@ spring:
           contentType: application/json
 prop:
   payment:
-    url: http://gateway:8080          
+    url: ${url}          
