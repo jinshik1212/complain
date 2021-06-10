@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: complain
-          image: 654789606772.dkr.ecr.ap-northeast-2.amazonaws.com/user03-complain:v10
+          image: 654789606772.dkr.ecr.ap-northeast-2.amazonaws.com/user03-complain:v12
           ports:
             - containerPort: 8080          
           env:
